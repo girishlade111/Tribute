@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Loving Memory of Sadashiv Tukaram Lade</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Open+Sans:wght@400;600&family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            background-color: #F8F8F4; /* Ivory White */
+            color: #333; /* Charcoal Gray */
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6, blockquote {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Custom font class for Marathi text */
+        .font-marathi {
+            font-family: 'Tiro Devanagari Marathi', serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQ4gbUpNp5-L_E7Uc9hts8GEafo-Td9MwHRI0lLkOZYu6Xzi1yUSIjkhcuQKPKcb_PsQcx-Vv75VoC4xVL2yfbHUwxTzn2Bb2vofjjmZIy3tsFM34na_e0B1SHaoDwuEjODrqECmb7oNlFSC2-n9zXgQBiQ60qxLRzgUurdr57tTPrR_zhlKChBSNc/s4096/IMG_20250717_013911_130.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        .hero-overlay {
+            background-color: rgba(52, 73, 94, 0.5); /* Deep Blue with transparency */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes candleFlicker {
+            0%, 100% { transform: scaleY(1); opacity: 1; }
+            50% { transform: scaleY(1.05) scaleX(1.02); opacity: 0.95; }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .animate-slide-in-up {
+            animation: slideInUp 1s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+        
+        .candle-flicker {
+            animation: candleFlicker 3s infinite ease-in-out;
+        }
+
+        /* Intersection Observer Trigger */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(30px);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Mute Button */
+        #mute-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #34495E; /* Deep Blue */
+            color: #F8F8F4;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #mute-btn:hover {
+            background-color: #E8E6F3; /* Light Lavender */
+            color: #34495E;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Background Music (Optional) -->
+    <audio id="background-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="mute-btn" title="Toggle Music">
+        <svg id="volume-on-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        <svg id="volume-off-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-x hidden"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="bg-ivory-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-center items-center">
+            <div class="space-x-4 md:space-x-8 text-sm md:text-base">
+                <a href="#about" class="text-gray-700 hover:text-deep-blue transition">About Him</a>
+                <a href="#gallery" class="text-gray-700 hover:text-deep-blue transition">Memories</a>
+                <a href="#messages" class="text-gray-700 hover:text-deep-blue transition">Messages</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🏠 Home Section -->
+    <header class="hero-section h-screen flex items-center justify-center text-white text-center relative">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 p-6">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-in" style="animation-delay: 0.5s;">In Loving Memory of</h1>
+            <h2 class="text-5xl md:text-7xl lg:text-8xl font-bold mt-4 animate-fade-in" style="animation-delay: 1s;">Sadashiv Tukaram Lade</h2>
+            <p class="text-xl md:text-2xl mt-6 animate-fade-in" style="animation-delay: 1.5s;">Forever in Our Hearts | <span class="font-marathi">सदैव आमच्या हृदयात</span></p>
+            <p class="text-lg md:text-xl mt-2 animate-fade-in" style="animation-delay: 1.7s;">29 June 2025</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24 space-y-20 md:space-y-32">
+
+        <!-- 👤 About Him Section -->
+        <section id="about" class="text-center max-w-4xl mx-auto scroll-animate">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkxc18rJooHEFEZoCEvG7V9yqllkq5WuP-dbM7fSDuezThbZ0vTqFmAyDMUcHxU58v4WG58-c3qZd9a8zBY0mgiPNOEO8JglzCd9HN3ZMAIonV21q8bjk7IAVhDj6-RdXGJyDvF9C54YIEIL8LFrZ-boBNae1BdPvfaTM08H2oWDqmBQQ2eD7W_25/s4536/IMG_20250717_013758_754.jpg" alt="Sadashiv Tukaram Lade" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover mx-auto mb-8 shadow-lg border-4 border-white">
+            <h3 class="text-4xl md:text-5xl font-semibold text-gray-800">A Life Beautifully Lived | <span class="font-marathi">एक सुंदर जीवन प्रवास</span></h3>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed">
+                There are some souls who walk this earth for a short while, but their legacy of love and kindness lasts for generations. Sadashiv Tukaram Lade was one such soul. To us, he was not just a name, but a feeling of home, a source of unwavering strength, and the sound of the most genuine laughter. Born on [DD/MM/YYYY], his life was a testament to simple joys and profound love. He found beauty in a blooming garden, warmth in a shared cup of tea, and purpose in the happiness of his family. His presence was a gift, and his memory is a treasure we will hold in our hearts forever.
+            </p>
+        </section>
+
+        <!-- ✨ Quote Section -->
+        <section class="text-center max-w-3xl mx-auto scroll-animate">
+            <blockquote class="text-3xl md:text-4xl italic text-gray-700 leading-snug">
+                “Those we love don't go away, they walk beside us every day. Unseen, unheard, but always near.”
+                <span class="text-xl block mt-4 text-gray-500 font-marathi">आपली माणसं दूर जात नाहीत, ती कायम आपल्यासोबतच असतात.</span>
+            </blockquote>
+        </section>
+
+        <!-- 🖼️ Memories Gallery -->
+        <section id="gallery" class="scroll-animate">
+            <h3 class="text-4xl md:text-5xl font-semibold text-center text-gray-800 mb-12">Precious Moments | <span class="font-marathi">अनमोल क्षण</span></h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNkxc18rJooHEFEZoCEvG7V9yqllkq5WuP-dbM7fSDuezThbZ0vTqFmAyDMUcHxU58v4WG58-c3qZd9a8zBY0mgiPNOEO8JglzCd9HN3ZMAIonV21q8bjk7IAVhDj6-RdXGJyDvF9C54YIEIL8LFrZ-boBNae1BdPvfaTM08H2oWDqmBQQ2eD7W_25/s4536/IMG_20250717_013758_754.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJiZpMZND1rHS5lvnt4p9hEJLHK_ib_k2zvtK3o8s0zA-PBH6M7olLvQYBUQZJLxRnLmscMM-n0z2AltrLPInxrYdqJjsJOjZNVUCVWVCQNEoCVRzqWJ2vXSrpeUHLUtqMLKZoeEdwyghTBMxjx9Sqx-TaPeJ1wnZH5oJI8UA8n1B6Tnw7TmwuVtdE/s4096/IMG_20250717_013822_909.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOK7Pdojd4NFnr0SYfX2OvuXpBOMLqsfQVTmoCnwuBLW3Gsz0FeCFHcmMb6W0JsV6U8zn5UfXcniZPzdmZpmP2T0Lh4n2W8zybFFeMUgk1KAGJJN4hkswVLX8Zx-2WIyJDdxSwJhpiOVIY0g8apgtJEj9uQlZjexH1DDXTzHy-jPD-1X7SbTiHZceE/s4096/IMG_20250717_013716_968.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                 <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwh_Fl0R0B60UkP7Rjpo3We9-k12ArSYN4CSzAjh1W9mrbK-UmIIFnPF226hFF_yCC3SfKbworfj2QIEyFdfR_7TThfo4PgO1xuz02SxZJh9g3A5EfEBMMXGent0tl55khg6z7A1VFKv7cLtzE12FmcuQfJbJejlILbEYcGw6wCQh0RdElkki_O56S/s4096/IMG_20250717_013719_365.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQVEuR8ZRgJxGCCXCBWlNsdpqKJ4C-2sIUy2GCtRKSTZXTGn2kmQVTmRYjAYCfKvdBVrWhQ7hhOZ7j45pbpyyS8BY5rQwVqhWianjrpd_h7oAaJXoKh3lfoEgET8P0Tq9hVUZB7AnSaXmvHHiy7mfAcFkLGM3mX0REhu7rtlNTxkYU_UUOrFSRj6tT/s4096/IMG_20250717_013754_149.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlx8_KjJbGW6C-xKzxBo21j8sdMWhIEOgkiF01SV9j-GDnhYi8DEH85fEj91gRl25f8rHhWBzFYnPKXk2RDhx9pGAvfXLZv8uH11EAQrQ11v_EmsnRwJhjhqTlmiFNiw7h4GBWVElORP0z5YEcUzHjaZZ7Y_GHgS5UEDfLjUYrc9tdJqOb9YZ4AWpF/s4096/IMG_20250717_013737_032.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf_aA4A8Bk2RjcZAcN7Ayn1k0x1uEfJDAqP9TGgLyotYDI8swMFEJK9cskUQjKS7tPo__IYjsMIEnMvA5LQclXmjEFD22qfm1wzUdNhkAOkkviHaEakNNhtzei3zCtarphCh8dtB0a1O9JIR6W5ci6BGk9cygaGXok86pRZQBqMfnb-tRz3G64ASuF/s4096/IMG_20250717_013841_284.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFKd6MMM1VzPiDz2HMaO1rvC8cbvoicXmpfzTkiL7uY42Tjm44rSgJCf9MbhRX1qznsmpcUyhPdD98Ii-51FR-755uYYluhMZOHU5jVJEbtOHHyrp_LGMOO0pMcYtS97vObJftZccgne5VrEBJC_mAAmba3zkx0L5dReYeS4ETWXrJweFTJzzV0Aez/s4096/IMG_20250717_014006_375.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXw_dTnHAyxAZb0kmV_8FMkyRYU7Bt9D7ItPlZ019YtBGhyphenhyphenjA6xhJ7-mWIVnwaWSM20cPHqjrRqGdvmY3Us5YeXloZ2TpAQ8uL6Xr1phK8ks-Ipn1gx1Djmrv_7dw4VyP5tRJM9tmwkqpYxnnnRj1xhHGhuLRm30R487eyxzjabFwCkZvR0xoIcjzj/s4536/IMG_20250717_013849_775.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0TAaXpwLVhYlBjnF5aAT2WrsOqOa_TAheU3G6dKh5tFSoP5wisjTjR7FaKrbTc6VfJqcn4nbGkKcz8qkx_GDfmbB8S_z4MmVrAvRe8mYzeUAMrMi4Q34hLSxDr7SxMdHYAVck25652kH76f-fJu5r20N12bdvHbYP5lGyiFe9_9_Oyuk0rxyx_Hi3/s4536/IMG_20250717_013827_059.jpg" alt="Memory of Sadashiv Lade" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lightbox -->
+        <div id="lightbox" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 lightbox">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-full rounded-lg shadow-2xl">
+            <button id="lightbox-close" class="absolute top-5 right-5 text-white text-4xl">&times;</button>
+        </div>
+
+        <!-- 💌 Messages from Loved Ones -->
+        <section id="messages" class="scroll-animate">
+            <h3 class="text-4xl md:text-5xl font-semibold text-center text-gray-800 mb-12">Messages from Loved Ones | <span class="font-marathi">प्रियजनांचे संदेश</span></h3>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                <form id="message-form">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender" required></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="w-full bg-deep-blue text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors duration-300">Share Your Memory | <span class="font-marathi">तुमची आठवण शेअर करा</span></button>
+                </form>
+                <div id="form-feedback" class="text-center mt-4"></div>
+            </div>
+
+            <div id="messages-display" class="mt-16 space-y-6">
+                <!-- Messages will be loaded here from Firebase -->
+                <div class="text-center text-gray-500">Loading messages...</div>
+            </div>
+        </section>
+
+        <!-- 🙏 Final Goodbye / Prayer -->
+        <section class="text-center max-w-3xl mx-auto scroll-animate">
+            <div class="flex justify-center mb-8">
+                 <svg class="w-24 h-24 text-deep-blue candle-flicker" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C11.45 2 11 2.45 11 3V4.35C7.06 4.86 4 8.09 4 12C4 15.91 7.06 19.14 11 19.65V21C11 21.55 11.45 22 12 22S13 21.55 13 21V19.65C16.94 19.14 20 15.91 20 12C20 8.09 16.94 4.86 13 4.35V3C13 2.45 12.55 2 12 2ZM12 6C15.31 6 18 8.69 18 12C18 15.31 15.31 18 12 18C8.69 18 6 15.31 6 12C6 8.69 8.69 6 12 6Z"/>
+                    <path d="M11.5 7C10.67 7 10 7.67 10 8.5C10 9.33 10.67 10 11.5 10C11.8 10 12.08 9.92 12.32 9.77C12.56 9.62 12.8 9.41 13 9.17C13.2 8.93 13.33 8.66 13.33 8.33C13.33 7.6 12.74 7 12 7H11.5Z" fill="#FFD700"/>
+                </svg>
+            </div>
+            <h3 class="text-4xl md:text-5xl font-semibold text-gray-800">Until We Meet Again | <span class="font-marathi">पुन्हा भेटू तोपर्यंत</span></h3>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed">
+                The light from your soul still shines brightly upon us, a gentle reminder of a life so beautifully lived. Though we cannot see you, we feel you in the quiet moments, in the stories we share, and in the love that binds us all. You are not gone, you have simply journeyed ahead. Rest in peace. We will carry you in our hearts, until we meet again.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- 📎 Footer -->
+    <footer class="bg-deep-blue text-ivory-white/80 py-10 mt-20">
+        <div class="container mx-auto text-center">
+            <p class="font-semibold text-lg">In Loving Memory of Sadashiv Tukaram Lade</p>
+            <p class="text-sm mt-2">Born: [DD/MM/YYYY] – Passed: 29 June 2025</p>
+            <p class="text-sm mt-4 italic">"His story is written in the lives he changed." | <span class="font-marathi">"त्यांची कहाणी त्यांनी बदललेल्या आयुष्यात लिहिलेली आहे."</span></p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, push, onValue, serverTimestamp, query, orderByChild } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // DOM Elements
+        const messageForm = document.getElementById('message-form');
+        const messagesDisplay = document.getElementById('messages-display');
+        
+        // Use environment-provided Firebase config and app ID
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        if (!firebaseConfig) {
+            // This block will run if the Firebase config is not provided by the environment.
+            console.error("Firebase configuration is not available.");
+            messagesDisplay.innerHTML = '<p class="text-center text-red-500 font-semibold">Firebase is not configured. Messages cannot be loaded or sent.</p>';
+            if(messageForm) messageForm.style.display = 'none';
+        } else {
+            (async () => {
+                try {
+                    // Initialize Firebase
+                    const app = initializeApp(firebaseConfig);
+                    const auth = getAuth(app);
+                    const db = getDatabase(app);
+
+                    // Sign in using the provided token or anonymously as a fallback
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                        console.log("Signed in with custom token.");
+                    } else {
+                        await signInAnonymously(auth);
+                        console.log("Signed in anonymously.");
+                    }
+
+                    // Use the correct path for the sandboxed environment
+                    const messagesPath = `artifacts/${appId}/public/data/messages`;
+                    const messagesRef = ref(db, messagesPath);
+                    
+                    const nameInput = document.getElementById('name');
+                    const messageInput = document.getElementById('message');
+                    const formFeedback = document.getElementById('form-feedback');
+                    const submitBtn = document.getElementById('submit-btn');
+
+                    // Handle Form Submission
+                    messageForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        
+                        const name = nameInput.value.trim();
+                        const message = messageInput.value.trim();
+
+                        if (!name || !message) {
+                            formFeedback.textContent = "Please fill out all fields.";
+                            formFeedback.style.color = 'red';
+                            return;
+                        }
+                        
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Submitting...';
+
+                        // Push data to Firebase Realtime Database
+                        push(messagesRef, {
+                            name: name,
+                            message: message,
+                            timestamp: serverTimestamp()
+                        }).then(() => {
+                            formFeedback.innerHTML = `Thank you for sharing your memory. | <span class="font-marathi">धन्यवाद!</span>`;
+                            formFeedback.style.color = 'green';
+                            messageForm.reset();
+                        }).catch((error) => {
+                            console.error("Error sending message: ", error);
+                            let userMessage = "An error occurred. Please try again.";
+                            if (error.code === 'PERMISSION_DENIED') {
+                                userMessage = "Could not send message. This is likely a database permissions issue.";
+                            }
+                            formFeedback.textContent = userMessage;
+                            formFeedback.style.color = 'red';
+                        }).finally(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = `Share Your Memory | <span class="font-marathi">तुमची आठवण शेअर करा</span>`;
+                             setTimeout(() => formFeedback.textContent = '', 3000);
+                        });
+                    });
+
+                    // Listen for and Display Messages
+                    const messagesQuery = query(messagesRef, orderByChild('timestamp'));
+                    onValue(messagesQuery, (snapshot) => {
+                        messagesDisplay.innerHTML = ''; // Clear previous messages
+                        if (!snapshot.exists()) {
+                            messagesDisplay.innerHTML = `<p class="text-center text-gray-500">Be the first to leave a message. | <span class="font-marathi">पहिला संदेश द्या.</span></p>`;
+                            return;
+                        }
+                        
+                        const messages = [];
+                        snapshot.forEach((childSnapshot) => {
+                            messages.push({ key: childSnapshot.key, ...childSnapshot.val() });
+                        });
+                        
+                        // Reverse to show newest first
+                        messages.reverse().forEach((data) => {
+                            const messageEl = document.createElement('div');
+                            messageEl.className = 'bg-white p-6 rounded-lg shadow-md border border-gray-100 animate-slide-in-up';
+                            
+                            const date = new Date(data.timestamp).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+                            messageEl.innerHTML = `
+                                <p class="text-gray-700 text-lg leading-relaxed">"${data.message}"</p>
+                                <p class="text-right text-sm text-gray-500 mt-4 font-semibold">- ${data.name}</p>
+                                <p class="text-right text-xs text-gray-400 mt-1">${date}</p>
+                            `;
+                            messagesDisplay.appendChild(messageEl);
+                        });
+                    });
+                } catch (error) {
+                    console.error("Firebase initialization failed:", error);
+                    messagesDisplay.innerHTML = `<p class="text-center text-red-500 font-semibold">An error occurred during Firebase setup: ${error.message}</p>`;
+                    if(messageForm) messageForm.style.display = 'none';
+                }
+            })();
+        }
+    </script>
+
+    <script>
+        // Vanilla JS for UI interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Tailwind Config (for custom colors)
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'ivory-white': '#F8F8F4',
+                            'charcoal-gray': '#333',
+                            'light-lavender': '#E8E6F3',
+                            'deep-blue': '#34495E',
+                            'soft-grey': '#D3D3D3',
+                        }
+                    }
+                }
+            }
+
+            // Music Toggle
+            const music = document.getElementById('background-music');
+            const muteBtn = document.getElementById('mute-btn');
+            const volumeOnIcon = document.getElementById('volume-on-icon');
+            const volumeOffIcon = document.getElementById('volume-off-icon');
+            let isMuted = true;
+            music.volume = 0.1; // Set a low, non-intrusive volume
+
+            // A small hack to allow autoplay in some browsers after user interaction
+            document.body.addEventListener('click', () => {
+                if(music.paused) music.play().catch(e => console.log("Autoplay blocked. User interaction needed."));
+            }, { once: true });
+
+            muteBtn.addEventListener('click', () => {
+                isMuted = !isMuted;
+                music.muted = isMuted;
+                volumeOnIcon.classList.toggle('hidden', isMuted);
+                volumeOffIcon.classList.toggle('hidden', !isMuted);
+            });
+
+            // Lightbox Logic
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Scroll Animations
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('visible');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', handleScrollAnimation);
+            // Trigger on load as well
+            handleScrollAnimation();
+        });
+    </script>
+</body>
+</html>
